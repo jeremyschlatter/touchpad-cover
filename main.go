@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -113,7 +114,9 @@ func touchpad(on bool) {
 	if *verbose {
 		fmt.Printf("-- %s touchpad: \"xinput %s '%s'\" --\n", verb, cmd, *pad)
 	}
-	mustBeNil(exec.Command("xinput", cmd, *pad).Run())
+	if b, err := exec.Command("xinput", cmd, *pad).CombinedOutput(); err != nil {
+		log.Fatalf("%s\n%v\n", b, err)
+	}
 }
 
 func mustBeNil(err error) {
