@@ -3,7 +3,9 @@ touchpad-cover
 
 Disable your touchpad while typing. Linux only.
 
-You probably want `syndaemon` instead of this. But if that doesn't work for you (as it didn't for me), this program might.
+You probably want `syndaemon` instead of this. If that doesn't work, you probably want [Touchpad Indicator](http://tipsonubuntu.com/2014/05/26/install-touchpad-indicator-ubuntu-14-04/) instead. If *neither* of those work for you, this program might.
+
+The `xinput enable` and `xinput disable` commands this program uses cause Xorg to use a lot of CPU. I don't understand why.
 
 
 ## Installation
